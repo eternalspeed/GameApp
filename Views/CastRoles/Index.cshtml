@@ -1,0 +1,36 @@
+﻿@model IEnumerable<GameApp.Models.CastRole>
+
+@{
+    ViewData["Title"] = "CastRole";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">CastRole</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CastRoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastRoleName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CastRoleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CastRoleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CastRoleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

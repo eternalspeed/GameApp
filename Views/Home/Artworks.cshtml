@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GameApp.Models.Artwork>
+
+@{
+    ViewData["Title"] = "Artworks";
+}
+
+<h1 class="text-light">Artworks</h1>
+<h2><a class="btn btn-success text-white" asp-controller="Home" asp-action="CreateArtwork">Add Artwork</a></h2>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArtworkUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArtworkTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.ArtworkUrl" width="100%" height="320" alt="@item.ArtworkTitle">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtworkTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.GameTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                @*<td>
+                    <a asp-action="Edit" asp-route-id="@item.ArtworkId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ArtworkId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ArtworkId">Delete</a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GameApp.Models.Series>
+
+@{
+    ViewData["Title"] = "Series";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">Series</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SeriesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfTitles)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfTitles)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SeriesId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SeriesId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SeriesId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

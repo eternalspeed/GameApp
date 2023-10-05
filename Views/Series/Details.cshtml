@@ -1,0 +1,31 @@
+﻿@model GameApp.Models.Series
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">Details</h1>
+
+<div class="text-light">
+    <h4>Series</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SeriesName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SeriesName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfTitles)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfTitles)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SeriesId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

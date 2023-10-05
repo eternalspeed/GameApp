@@ -1,0 +1,45 @@
+﻿@model GameApp.Models.Studio
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">Edit</h1>
+
+<h4 class="text-light">Studio</h4>
+<hr />
+<div class="row text-light">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StudioId" />
+            <div class="form-group">
+                <label asp-for="StudioRoleId" class="control-label"></label>
+                <select asp-for="StudioRoleId" class="form-control" asp-items="ViewBag.StudioRoleId"></select>
+                <span asp-validation-for="StudioRoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudioName" class="control-label"></label>
+                <input asp-for="StudioName" class="form-control" />
+                <span asp-validation-for="StudioName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Website" class="control-label"></label>
+                <input asp-for="Website" class="form-control" />
+                <span asp-validation-for="Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

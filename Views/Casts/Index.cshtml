@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GameApp.Models.Cast>
+
+@{
+    ViewData["Title"] = "Cast";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">Cast</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CastRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastRole.CastRoleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game.GameId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CastId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CastId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CastId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

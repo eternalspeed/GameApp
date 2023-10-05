@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GameApp.Models.Award>
+
+@{
+    ViewData["Title"] = "Awards";
+}
+
+<h1 class ="text-light">Awards</h1>
+
+<table class="table text-light"">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AwardName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AwardName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.GameTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

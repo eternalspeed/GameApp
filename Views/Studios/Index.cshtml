@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GameApp.Models.Studio>
+
+@{
+    ViewData["Title"] = "Studio";
+    Layout = "~/Views/Shared/_LayoutManagement.cshtml";
+}
+
+<h1 class="text-light">Studio</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudioName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudioRole)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudioName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudioRole.StudioRoleId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StudioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
